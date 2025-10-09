@@ -1,5 +1,5 @@
 
-# API (v1) – Summary
+# API (v1) — Summary (Personal Project)
 
 Base URL: `/api/v1`
 

@@ -1,3 +1,7 @@
+# Requirements — Personal Project
+
+This is my **personal** Student Management System (SMS) project.  
+Goals: learn full-stack basics, keep code simple, and document everything.
 
 # Requirements
 

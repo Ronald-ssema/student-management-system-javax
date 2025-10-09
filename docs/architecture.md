@@ -2,6 +2,7 @@
 # Architecture Overview
 
 ```mermaid
+%% Ronald’s SMS Architecture
 flowchart LR
 User[Web / Mobile] --> API[REST API (Express)]
 API --> DB[(Relational DB)]
@@ -14,6 +15,7 @@ end
 
 ## Component Diagram
 ```mermaid
+%% Ronald’s SMS Architecture
 flowchart TB
 Client --> Router
 Router --> StudentsController

@@ -2,6 +2,7 @@
 # Entity‑Relationship Diagram (ERD)
 
 ```mermaid
+%% Ronald’s SMS ERD
 erDiagram
     STUDENT ||--o{ ENROLLMENT : enrolls
     COURSE  ||--o{ ENROLLMENT : has

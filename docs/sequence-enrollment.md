@@ -2,6 +2,7 @@
 # Sequence: Student Enrollment
 
 ```mermaid
+%% Enrollment Sequence (Ronald’s SMS)
 sequenceDiagram
   autonumber
   participant U as Admin User
