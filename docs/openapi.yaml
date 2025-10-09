@@ -1,0 +1,34 @@
+
+openapi: 3.0.3
+info:
+  title: Student Management System API
+  version: 0.1.0
+servers:
+  - url: http://localhost:3000/api/v1
+paths:
+  /students:
+    get:
+      summary: List students
+      responses:
+        "200":
+          description: Ok
+    post:
+      summary: Create student
+      responses:
+        "201":
+          description: Created
+  /students/{id}:
+    get:
+      summary: Get student
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        "200": { description: Ok }
+  /courses:
+    get: { summary: List courses, responses: { "200": { description: Ok } } }
+    post: { summary: Create course, responses: { "201": { description: Created } } }
+  /enrollments:
+    post: { summary: Enroll student, responses: { "201": { description: Created } } }
