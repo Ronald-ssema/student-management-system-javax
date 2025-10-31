@@ -35,3 +35,5 @@ build/
 student-management-system/
 target/
 .DS_Store
+target/
+.DS_Store
