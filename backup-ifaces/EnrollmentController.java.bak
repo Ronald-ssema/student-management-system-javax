@@ -1,0 +1,38 @@
+package com.sms.controller;
+
+
+
+import com.sms.entity.Enrollment;
+import com.sms.repository.EnrollmentRepository;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/enrollments")
+public class EnrollmentController {
+
+    private final EnrollmentRepository enrollmentRepository;
+
+    public EnrollmentController(EnrollmentRepository enrollmentRepository) {
+        this.enrollmentRepository = enrollmentRepository;
+    }
+
+    @GetMapping
+    public List<Enrollment> getAllEnrollments() {
+        return enrollmentRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Enrollment> getEnrollmentById(@PathVariable Long id) {
+        return enrollmentRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    public Enrollment createEnrollment(@RequestBody Enrollment enrollment) {
+        return enrollmentRepository.save(enrollment);
+    }
+}

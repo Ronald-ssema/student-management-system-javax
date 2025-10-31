@@ -1,0 +1,47 @@
+package com.sms.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.sms.entity.Enrollment;
+import com.sms.repository.EnrollmentRepository;
+import com.sms.service.EnrollmentService;
+
+@Service
+public class EnrollmentServiceImpl implements EnrollmentService {
+
+    private final EnrollmentRepository repo;
+
+    public EnrollmentServiceImpl(EnrollmentRepository repo) {
+        this.repo = repo;
+    }
+
+    // --- RENAME this to match the interface exactly ---
+    @Override
+    public List<Enrollment> getAllEnrollments() {
+        return repo.findAll();
+    }
+
+    // --- RENAME this to match the interface exactly ---
+    @Override
+    public Enrollment getEnrollmentByStudentAndOffering(Long studentId, Long offeringId) {
+        // If your repository returns Optional<Enrollment>:
+        // return repo.findByStudentIdAndOfferingId(studentId, offeringId)
+        //           .orElseThrow(() -> new IllegalArgumentException(
+        //               "Enrollment not found: studentId=" + studentId + ", offeringId=" + offeringId));
+
+        // If your repository returns List<Enrollment>:
+        List<Enrollment> found = repo.findByStudentIdAndOfferingId(studentId, offeringId);
+        if (found.isEmpty()) {
+            throw new IllegalArgumentException("Enrollment not found: studentId=" + studentId + ", offeringId=" + offeringId);
+        }
+        return found.get(0);
+    }
+
+    // --- RENAME this to match the interface exactly ---
+    @Override
+    public Enrollment createEnrollment(Enrollment enrollment) {
+        return repo.save(enrollment);
+    }
+}
