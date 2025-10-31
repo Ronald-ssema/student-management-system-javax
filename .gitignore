@@ -33,3 +33,5 @@ build/
 .vscode/
 
 student-management-system/
+target/
+.DS_Store
